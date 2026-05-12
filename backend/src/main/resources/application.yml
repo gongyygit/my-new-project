@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://mysql:3306/warehouse_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf8}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+server:
+  port: 8080
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
