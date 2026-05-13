@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// 所有请求均通过 /api 前缀代理到后端 Spring Boot 服务
 const client = axios.create({
   baseURL: '/api',
   timeout: 10000

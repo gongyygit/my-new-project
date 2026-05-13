@@ -1,3 +1,4 @@
+# 构建阶段：安装依赖并编译前端项目
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package.json ./
@@ -5,6 +6,7 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
+# 运行阶段：使用 NGINX 提供静态资源
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf

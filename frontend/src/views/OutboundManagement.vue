@@ -136,9 +136,13 @@ const submitForm = async () => {
 const confirmDelete = row => {
   ElMessageBox.confirm('确认删除该出库记录吗？', '请确认', { type: 'warning' })
     .then(async () => {
-      await outboundApi.remove(row.id)
-      ElMessage.success('出库记录已删除')
-      await loadData()
+      try {
+        await outboundApi.remove(row.id)
+        ElMessage.success('出库记录已删除')
+        await loadData()
+      } catch (error) {
+        ElMessage.error('删除出库记录失败')
+      }
     })
     .catch(() => {})
 }

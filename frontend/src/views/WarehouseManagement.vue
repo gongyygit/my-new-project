@@ -98,9 +98,13 @@ const submitForm = async () => {
 const confirmDelete = row => {
   ElMessageBox.confirm('确认删除该仓库吗？', '请确认', { type: 'warning' })
     .then(async () => {
-      await warehouseApi.remove(row.id)
-      ElMessage.success('仓库已删除')
-      await loadList()
+      try {
+        await warehouseApi.remove(row.id)
+        ElMessage.success('仓库已删除')
+        await loadList()
+      } catch (error) {
+        ElMessage.error('删除仓库失败')
+      }
     })
     .catch(() => {})
 }

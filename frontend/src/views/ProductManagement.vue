@@ -121,9 +121,13 @@ const submitForm = async () => {
 const confirmDelete = row => {
   ElMessageBox.confirm('确认删除该商品吗？', '请确认', { type: 'warning' })
     .then(async () => {
-      await productApi.remove(row.id)
-      ElMessage.success('商品已删除')
-      await loadList()
+      try {
+        await productApi.remove(row.id)
+        ElMessage.success('商品已删除')
+        await loadList()
+      } catch (error) {
+        ElMessage.error('删除商品失败')
+      }
     })
     .catch(() => {})
 }
