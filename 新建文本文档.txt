@@ -1,8 +1,10 @@
 停止项目
 docker-compose down
 
+
 重新构建镜像
 docker-compose build
+
 
 重新启动
 docker-compose up -d
