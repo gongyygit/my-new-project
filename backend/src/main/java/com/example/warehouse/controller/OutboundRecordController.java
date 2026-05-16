@@ -1,8 +1,9 @@
 package com.example.warehouse.controller;
 
+import com.example.warehouse.common.Result;
+import com.example.warehouse.common.ResultUtil;
 import com.example.warehouse.entity.OutboundRecord;
 import com.example.warehouse.service.OutboundRecordService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,28 +18,28 @@ public class OutboundRecordController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OutboundRecord>> list() {
-        return ResponseEntity.ok(outboundRecordService.listAll());
+    public Result<List<OutboundRecord>> list() {
+        return ResultUtil.success(outboundRecordService.listAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OutboundRecord> get(@PathVariable Long id) {
-        return ResponseEntity.ok(outboundRecordService.getById(id));
+    public Result<OutboundRecord> get(@PathVariable Long id) {
+        return ResultUtil.success(outboundRecordService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<OutboundRecord> create(@RequestBody OutboundRecord record) {
-        return ResponseEntity.ok(outboundRecordService.create(record));
+    public Result<OutboundRecord> create(@RequestBody OutboundRecord record) {
+        return ResultUtil.success(outboundRecordService.create(record));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OutboundRecord> update(@PathVariable Long id, @RequestBody OutboundRecord record) {
-        return ResponseEntity.ok(outboundRecordService.update(id, record));
+    public Result<OutboundRecord> update(@PathVariable Long id, @RequestBody OutboundRecord record) {
+        return ResultUtil.success(outboundRecordService.update(id, record));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public Result<Void> delete(@PathVariable Long id) {
         outboundRecordService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResultUtil.success();
     }
 }

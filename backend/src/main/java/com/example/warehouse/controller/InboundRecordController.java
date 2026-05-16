@@ -1,8 +1,9 @@
 package com.example.warehouse.controller;
 
+import com.example.warehouse.common.Result;
+import com.example.warehouse.common.ResultUtil;
 import com.example.warehouse.entity.InboundRecord;
 import com.example.warehouse.service.InboundRecordService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,28 +18,28 @@ public class InboundRecordController {
     }
 
     @GetMapping
-    public ResponseEntity<List<InboundRecord>> list() {
-        return ResponseEntity.ok(inboundRecordService.listAll());
+    public Result<List<InboundRecord>> list() {
+        return ResultUtil.success(inboundRecordService.listAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<InboundRecord> get(@PathVariable Long id) {
-        return ResponseEntity.ok(inboundRecordService.getById(id));
+    public Result<InboundRecord> get(@PathVariable Long id) {
+        return ResultUtil.success(inboundRecordService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<InboundRecord> create(@RequestBody InboundRecord record) {
-        return ResponseEntity.ok(inboundRecordService.create(record));
+    public Result<InboundRecord> create(@RequestBody InboundRecord record) {
+        return ResultUtil.success(inboundRecordService.create(record));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<InboundRecord> update(@PathVariable Long id, @RequestBody InboundRecord record) {
-        return ResponseEntity.ok(inboundRecordService.update(id, record));
+    public Result<InboundRecord> update(@PathVariable Long id, @RequestBody InboundRecord record) {
+        return ResultUtil.success(inboundRecordService.update(id, record));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public Result<Void> delete(@PathVariable Long id) {
         inboundRecordService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResultUtil.success();
     }
 }

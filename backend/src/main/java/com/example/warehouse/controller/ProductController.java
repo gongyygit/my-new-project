@@ -1,8 +1,9 @@
 package com.example.warehouse.controller;
 
+import com.example.warehouse.common.Result;
+import com.example.warehouse.common.ResultUtil;
 import com.example.warehouse.entity.ProductInfo;
 import com.example.warehouse.service.ProductService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,28 +18,28 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductInfo>> list() {
-        return ResponseEntity.ok(productService.listAll());
+    public Result<List<ProductInfo>> list() {
+        return ResultUtil.success(productService.listAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductInfo> get(@PathVariable Long id) {
-        return ResponseEntity.ok(productService.getById(id));
+    public Result<ProductInfo> get(@PathVariable Long id) {
+        return ResultUtil.success(productService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ProductInfo> create(@RequestBody ProductInfo productInfo) {
-        return ResponseEntity.ok(productService.create(productInfo));
+    public Result<ProductInfo> create(@RequestBody ProductInfo productInfo) {
+        return ResultUtil.success(productService.create(productInfo));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductInfo> update(@PathVariable Long id, @RequestBody ProductInfo productInfo) {
-        return ResponseEntity.ok(productService.update(id, productInfo));
+    public Result<ProductInfo> update(@PathVariable Long id, @RequestBody ProductInfo productInfo) {
+        return ResultUtil.success(productService.update(id, productInfo));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public Result<Void> delete(@PathVariable Long id) {
         productService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResultUtil.success();
     }
 }

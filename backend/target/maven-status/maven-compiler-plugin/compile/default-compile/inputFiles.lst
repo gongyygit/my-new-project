@@ -1,8 +1,13 @@
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\ProductService.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\config\MybatisPlusConfig.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\common\Result.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\exception\UnauthorizedException.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\mapper\OutboundRecordMapper.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\OutboundRecordService.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\entity\ProductInfo.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\impl\WarehouseServiceImpl.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\config\MetaAutoFillHandler.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\exception\BusinessException.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\impl\InventoryServiceImpl.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\InventoryService.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\controller\InventoryController.java
@@ -13,6 +18,7 @@ E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\entity\InboundR
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\controller\WarehouseController.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\controller\ProductController.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\entity\WarehouseInfo.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\exception\GlobalExceptionHandler.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\InboundRecordService.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\impl\OutboundRecordServiceImpl.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\config\WebConfig.java
@@ -22,6 +28,8 @@ E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\mapper\ProductM
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\controller\InboundRecordController.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\WarehouseApplication.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\impl\InboundRecordServiceImpl.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\common\ResultUtil.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\mapper\WarehouseMapper.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\mapper\InventoryMapper.java
 E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\service\WarehouseService.java
+E:\AI\my-new-project\backend\src\main\java\com\example\warehouse\entity\BaseEntity.java

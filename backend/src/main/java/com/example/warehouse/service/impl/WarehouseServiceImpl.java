@@ -1,6 +1,7 @@
 package com.example.warehouse.service.impl;
 
 import com.example.warehouse.entity.WarehouseInfo;
+import com.example.warehouse.exception.BusinessException;
 import com.example.warehouse.mapper.WarehouseMapper;
 import com.example.warehouse.service.WarehouseService;
 import org.springframework.stereotype.Service;
@@ -22,17 +23,37 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     @Override
     public WarehouseInfo getById(Long id) {
-        return warehouseMapper.findById(id);
+        if (id == null) {
+            throw new BusinessException(400, "仓库ID不能为空");
+        }
+        WarehouseInfo warehouse = warehouseMapper.findById(id);
+        if (warehouse == null) {
+            throw new BusinessException(400, "仓库不存在");
+        }
+        return warehouse;
     }
 
     @Override
     public WarehouseInfo create(WarehouseInfo warehouseInfo) {
+        if (warehouseInfo == null) {
+            throw new BusinessException(400, "仓库信息不能为空");
+        }
         warehouseMapper.insert(warehouseInfo);
         return warehouseInfo;
     }
 
     @Override
     public WarehouseInfo update(Long id, WarehouseInfo warehouseInfo) {
+        if (id == null) {
+            throw new BusinessException(400, "仓库ID不能为空");
+        }
+        if (warehouseInfo == null) {
+            throw new BusinessException(400, "仓库信息不能为空");
+        }
+        WarehouseInfo existing = warehouseMapper.findById(id);
+        if (existing == null) {
+            throw new BusinessException(400, "仓库不存在");
+        }
         warehouseInfo.setId(id);
         warehouseMapper.update(warehouseInfo);
         return warehouseInfo;
@@ -40,6 +61,13 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     @Override
     public void delete(Long id) {
+        if (id == null) {
+            throw new BusinessException(400, "仓库ID不能为空");
+        }
+        WarehouseInfo existing = warehouseMapper.findById(id);
+        if (existing == null) {
+            throw new BusinessException(400, "仓库不存在");
+        }
         warehouseMapper.delete(id);
     }
 }

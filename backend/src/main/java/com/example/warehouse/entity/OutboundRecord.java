@@ -1,22 +1,10 @@
 package com.example.warehouse.entity;
 
-import java.time.LocalDateTime;
-
-public class OutboundRecord {
-    private Long id;
+public class OutboundRecord extends BaseEntity {
     private Long warehouseId;
     private Long productId;
     private Integer quantity;
-    private LocalDateTime createdAt;
     private String remark;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getWarehouseId() {
         return warehouseId;
@@ -40,14 +28,6 @@ public class OutboundRecord {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public String getRemark() {

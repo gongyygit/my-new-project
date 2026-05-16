@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 入口类：启动 Spring Boot 应用并扫描 MyBatis Mapper 接口
  */
-@SpringBootApplication
+@SpringBootApplication(excludeName = {
+        "org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration"
+})
 @MapperScan("com.example.warehouse.mapper")
 public class WarehouseApplication {
     public static void main(String[] args) {

@@ -6,16 +6,24 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     cors:
-      allowed-origins: "*"
+      allowed-origin-patterns: "*"
       allowed-methods: GET,POST,PUT,DELETE,OPTIONS
       allowed-headers: "*"
       allow-credentials: true
   sql:
     init:
-      mode: always
-      schema-locations: classpath:schema.sql
+      mode: never
 server:
   port: 8080
 mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
   configuration:
     map-underscore-to-camel-case: true

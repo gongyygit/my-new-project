@@ -1,20 +1,11 @@
 package com.example.warehouse.entity;
 
-public class ProductInfo {
-    private Long id;
+public class ProductInfo extends BaseEntity {
     private Long warehouseId;
     private String sku;
     private String name;
     private String unit;
     private Integer quantity;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getWarehouseId() {
         return warehouseId;

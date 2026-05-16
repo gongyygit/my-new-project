@@ -1,8 +1,9 @@
 package com.example.warehouse.controller;
 
+import com.example.warehouse.common.Result;
+import com.example.warehouse.common.ResultUtil;
 import com.example.warehouse.entity.WarehouseInfo;
 import com.example.warehouse.service.WarehouseService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,28 +18,28 @@ public class WarehouseController {
     }
 
     @GetMapping
-    public ResponseEntity<List<WarehouseInfo>> list() {
-        return ResponseEntity.ok(warehouseService.listAll());
+    public Result<List<WarehouseInfo>> list() {
+        return ResultUtil.success(warehouseService.listAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<WarehouseInfo> get(@PathVariable Long id) {
-        return ResponseEntity.ok(warehouseService.getById(id));
+    public Result<WarehouseInfo> get(@PathVariable Long id) {
+        return ResultUtil.success(warehouseService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<WarehouseInfo> create(@RequestBody WarehouseInfo warehouseInfo) {
-        return ResponseEntity.ok(warehouseService.create(warehouseInfo));
+    public Result<WarehouseInfo> create(@RequestBody WarehouseInfo warehouseInfo) {
+        return ResultUtil.success(warehouseService.create(warehouseInfo));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<WarehouseInfo> update(@PathVariable Long id, @RequestBody WarehouseInfo warehouseInfo) {
-        return ResponseEntity.ok(warehouseService.update(id, warehouseInfo));
+    public Result<WarehouseInfo> update(@PathVariable Long id, @RequestBody WarehouseInfo warehouseInfo) {
+        return ResultUtil.success(warehouseService.update(id, warehouseInfo));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public Result<Void> delete(@PathVariable Long id) {
         warehouseService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResultUtil.success();
     }
 }
